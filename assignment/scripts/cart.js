@@ -22,21 +22,21 @@ empty();
 
 // isFull - false
 console.log(`Expected result is false: ${isFull()}`);
-
 addItem('Chicken');
 addItem('Beans');
 addItem('Ice Cream');
-
 console.log(`Expected result is false: ${isFull()}`);
-
 addItem('Avocado');
 addItem('Eggs');
-
 //isFull - true
 console.log(`Expected result is true: ${isFull()}`);
 addItem('Bread');
 console.log(`Expected result is true: ${isFull()}`);
 
+//removeItem - Found
+removeItem('Ice Cream');
+//removeItem - Not Found
+removeItem('Pasta');
 //END TESTS //
 
 // ************************************* //
@@ -84,6 +84,18 @@ function isFull(){
         return false;
     }
     return true;
+}
+
+//
+function removeItem(item){
+    if(basket.indexOf(item) != -1){
+        basket.splice(basket.indexOf(item));
+        console.log(`Removed ${item}`);
+        return item;
+    }
+    console.log(`${item} was not found in the basket`);
+    return null;
+    
 }
 
 
