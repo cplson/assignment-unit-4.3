@@ -28,15 +28,20 @@ addItem('Ice Cream');
 console.log(`Expected result is false: ${isFull()}`);
 addItem('Avocado');
 addItem('Eggs');
+listItems();
 //isFull - true
 console.log(`Expected result is true: ${isFull()}`);
 addItem('Bread');
 console.log(`Expected result is true: ${isFull()}`);
+listItems();
 
 //removeItem - Found
 removeItem('Ice Cream');
+listItems();
+
 //removeItem - Not Found
 removeItem('Pasta');
+listItems();
 //END TESTS //
 
 // ************************************* //
@@ -58,10 +63,11 @@ function addItem(item){
 
 // Logs every item in basket to the console
 function listItems(){ 
-    console.log('*Item List*\n')
+    console.log('\n*Item List*\n')
     for(let item of basket){
         console.log('>', item);
     }
+    console.log('\n');
 }
 
 // Empties all items from the list
@@ -89,7 +95,7 @@ function isFull(){
 //If the item called is in the basket, removes it from the basket
 function removeItem(item){
     if(basket.indexOf(item) != -1){
-        basket.splice(basket.indexOf(item));
+        basket.splice(basket.indexOf(item), 1);
         console.log(`Removed ${item}`);
         return item;
     }
