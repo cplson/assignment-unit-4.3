@@ -6,7 +6,9 @@ console.log('***** Cart Functions *****');
 let basket = [];
 const MAX_ITEMS = 5;
 
-// Tests //
+// ************************************* //
+
+// TESTS //
 // addItem  
 addItem('Broccoli');
 addItem('Potatoes');
@@ -20,27 +22,38 @@ empty();
 
 // isFull - false
 console.log(`Expected result is false: ${isFull()}`);
-basket = ['Chicken', 'Beans', 'Ice Cream'];
+
+addItem('Chicken');
+addItem('Beans');
+addItem('Ice Cream');
+
 console.log(`Expected result is false: ${isFull()}`);
 
-basket.push('Avocado');
-basket.push('Eggs');
+addItem('Avocado');
+addItem('Eggs');
 
 //isFull - true
 console.log(`Expected result is true: ${isFull()}`);
-basket.push('Bread');
+addItem('Bread');
 console.log(`Expected result is true: ${isFull()}`);
 
-//End Tests //
+//END TESTS //
 
+// ************************************* //
 
-// Function Definitions //
+// FUNCTION DEFINITITIONS //
 
-// Adds an item to the basket array
+// If the basket has room, adds an item to the basket
 function addItem(item){ 
-    basket.push(item);
-    console.count(`Added ${item} into the basket`);
-    return true;
+    if(isFull()){
+        console.log(`Error: There was no room in the basket for ${item}`)
+        return false;
+    }
+    else{
+        basket.push(item);
+        console.count(`Added ${item} into the basket`);
+        return true;
+    }    
 }
 
 // Logs every item in basket to the console
@@ -62,7 +75,7 @@ function empty(){
     }
     else{
         console.log('Basket is now empty');
-    }
+    }   
 }
 
 // Checks if the basket is full
@@ -72,4 +85,6 @@ function isFull(){
     }
     return true;
 }
-// End Function Definitions //
+
+
+// END FUNCTION DEFINITIONS //
