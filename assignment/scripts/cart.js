@@ -86,7 +86,7 @@ function isFull(){
     return true;
 }
 
-//
+//If the item called is in the basket, removes it from the basket
 function removeItem(item){
     if(basket.indexOf(item) != -1){
         basket.splice(basket.indexOf(item));
@@ -94,9 +94,6 @@ function removeItem(item){
         return item;
     }
     console.log(`${item} was not found in the basket`);
-    return null;
-    
+    return null;   
 }
-
-
 // END FUNCTION DEFINITIONS //
